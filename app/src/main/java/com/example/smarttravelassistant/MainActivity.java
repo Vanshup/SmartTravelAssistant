@@ -27,11 +27,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        // Navigate to Maps Screen
-        btnMaps.setOnClickListener(view -> {
-            Intent intent = new Intent(MainActivity.this, MapsActivity.class);
-            startActivity(intent);
-        });
+
 
         // Navigate to Weather Screen
         btnWeather.setOnClickListener(view -> {

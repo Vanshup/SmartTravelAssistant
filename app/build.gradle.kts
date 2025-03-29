@@ -1,7 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-
 }
 
 android {
@@ -26,28 +25,31 @@ android {
             )
         }
     }
+
+    // 🔥 Set consistent Java and Kotlin JVM versions
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
 
-
+    kotlinOptions {   // ✅ Correct placement for JVM compatibility
+        jvmTarget = "11"
+    }
 }
-val implementation by configurations
-dependencies {
 
+val implementation by configurations
+
+dependencies {
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
     implementation(libs.constraintlayout)
+    implementation(libs.core.ktx)
+
+    // ✅ Add missing Kotlin Stdlib dependency
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.9.21")
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
-    implementation(libs.core.ktx)
-
-
-
 }
-
-
-
